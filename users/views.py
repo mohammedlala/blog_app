@@ -1,16 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm, UserCustomForm
+from .forms import UserRegisterForm, UserUpdateForm, ProfileUpdateForm
 from django.contrib.auth.decorators import login_required
 
 
 def register(request):
     if request.method == 'POST':
         u_form = UserRegisterForm(request.POST)
-        p_form = UserCustomForm(request.POST)
-        if u_form.is_valid() and p_form.is_valid():
+        if u_form.is_valid():
             u_form.save()
-            p_form.save()
             username = u_form.cleaned_data.get('username')
             messages.success(
                 request, f'Account Created For {username}, Now you are able to Login!!')
@@ -18,9 +16,8 @@ def register(request):
 
     else:
         u_form = UserRegisterForm()
-        p_form = UserCustomForm()
 
-    return render(request, 'users/register.html', {'u_form': u_form, 'p_form': p_form})
+    return render(request, 'users/register.html', {'u_form': u_form})
 
 
 @login_required
