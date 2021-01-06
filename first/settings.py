@@ -147,7 +147,7 @@ EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_PASS')
 AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
 AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
-s3_client = boto3.resource('s3', region_name='us-east-2')
+AWS_S3_REGION_NAME = "us-east-2"
 AWS_S3_FILE_OVERWRITE = False
 AWS_DEFAULT_ACL = None
 
