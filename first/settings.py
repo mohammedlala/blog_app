@@ -153,6 +153,6 @@ AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME')
 
 AMAZONE_S3_DOMAIN = '.s3.amazonaws.com'
 S3_HTTP = 'http://'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+STATICFILES_STORAGE = 'storages.backends.s3boto3.S3StaticStorage'
 
 django_heroku.settings(locals())
